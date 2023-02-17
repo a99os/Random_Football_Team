@@ -141,7 +141,7 @@ function renderPlayers(name = "") {
 
   setTimeout(() => {
     stadium.append(element);
-  }, 1000 * posCount);
+  }, 2000 * posCount);
 }
 function renderZamen(name = "") {
   const element = createElement(
