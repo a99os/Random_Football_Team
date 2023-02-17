@@ -92,6 +92,7 @@ const top__wrapper = document.querySelector(".top__wrapper");
 const zamen_wrapper = document.querySelector(".zamen_wrapper");
 
 form.addEventListener("submit", (e) => {
+  e.preventDefault();
   formSubmit();
 });
 function formSubmit() {
