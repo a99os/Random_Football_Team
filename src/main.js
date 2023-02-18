@@ -156,7 +156,7 @@ function renderZamen(name = "") {
 
   setTimeout(() => {
     zamen_wrapper.append(element);
-  }, 1000 * posCount);
+  }, 2000 * posCount);
 }
 
 const back = document.querySelector(".back");
