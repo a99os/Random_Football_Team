@@ -1,101 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- tailwind -->
-
+    <title>Tasodifiy jamoalar</title>
     <link rel="stylesheet" href="./output.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>Football team</title>
-    <!-- main css -->
-    <link rel="stylesheet" href="./styles/style.css" />
-    <!-- boc icon -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body
-    class="bg-[url('./images/polya.jpg')] bg-cover bg-no-repeat overflow-x-hidden font-['Asul']"
-  >
-    <div class="main">
-      <div
-        class="form__wrapper p-3 flex min-h-screen min-w-screen bg-[#0000007e] backdrop-blur-sm justify-center items-center"
-      >
-        <form
-          action="#"
-          class="px-2 py-10 md:p-10 form bg-[#ffffffb8] w-300px border border-green-500 rounded-lg shadow-lg shadow-green-700 md:w-[750px] text-center"
-        >
-          <h1 class="text-lg md:text-3xl font-bold text-green-900 uppercase">
-            Futbolchilar nomini kiriting:
-          </h1>
-          <div
-            class="input_wrapper flex p-4 justify-center flex-wrap gap-y-5 gap-x-5"
-          >
-            <!-- dinamic inputs -->
+  <body class="min-h-screen bg-slate-900 font-sans text-slate-100 antialiased">
+    <div
+      class="fixed inset-0 -z-10 bg-[url('./images/polya.webp')] bg-cover bg-center"
+      aria-hidden="true"
+    ></div>
+    <div class="fixed inset-0 -z-10 bg-slate-900/80 backdrop-blur-sm" aria-hidden="true"></div>
+
+    <!-- ============ entry screen ============ -->
+    <main id="entry" class="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-4 py-10">
+      <div class="rounded-2xl border border-white/20 bg-slate-900/70 p-6 shadow-2xl sm:p-8">
+        <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+          Tasodifiy jamoalar
+        </h1>
+        <p class="mt-1.5 text-sm text-slate-400">
+          O'yinchilar ismini yozing, nechta jamoaga bo'linishini tanlang.
+        </p>
+
+        <form id="add-form" class="mt-6" novalidate>
+          <label for="name-input" class="sr-only">O'yinchi ismi</label>
+          <div class="flex gap-2">
+            <input
+              id="name-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Ism yozing va Enter bosing"
+              class="min-w-0 flex-1 rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-base text-white placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/40"
+            />
+            <button
+              type="submit"
+              class="shrink-0 rounded-lg bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 active:bg-emerald-700"
+            >
+              Qo'shish
+            </button>
           </div>
-          <div class="buttons flex justify-center gap-10">
-            <div
-              id="add"
-              class="add p-2 flex justify-center active:bg-[#bdbebdba] group hover:bg-[#28b534cb] items-center rounded-lg cursor-pointer bg-[#166d1d]"
-            >
-              <p class="text-white group-active:text-black">+qo'shish</p>
-            </div>
-            <div
-              id="remove"
-              class="remove p-2 flex justify-center active:bg-[#bdbebdba] group hover:bg-[#b53428cb] items-center rounded-lg cursor-pointer bg-[#6d1616]"
-            >
-              <p class="text-white group-active:text-black">-o'chirish</p>
-            </div>
-            <div
-              id="clear"
-              class="clear p-2 flex justify-center active:bg-[#bdbebdba] group hover:bg-[#d0a633cb] items-center rounded-lg cursor-pointer bg-[#9b8518]"
-            >
-              <p class="text-white group-active:text-black">tozalash</p>
-            </div>
-          </div>
-          <button
-            type="submit"
-            class="uppercase border mt-5 border-green-500 px-4 py-3 rounded-lg font-bold hover:bg-[#06971eba] hover:text-white active:bg-green-700 shadow-2xl bg-[#ffffffbe]"
-          >
-            Tasodifiy guruhlash
-          </button>
         </form>
-      </div>
-      <div
-        class="top__wrapper hidden flex-col pt-[70px] md:p-2 gap-2 min-h-screen min-w-screen bg-[#0000007e] backdrop-blur-sm justify-center items-center"
-      >
-        <div
-          class="stadium relative bg-[url('./images/top.jpg')] mb-[70px] md:mb-0 rotate-90 md:rotate-0 w-[500px] h-[350px] md:w-[900px] md:h-[600px] rounded-3xl shadow-2xl overflow-hidden bg-cover bg-center"
-        >
-          <!-- dinamic players -->
-        </div>
-        <div class="flex justify-end gap-4 bg-[#237b19a5] px-6 py-3 rounded-lg">
-          <div
-            id="back"
-            class="back p-2 flex justify-center active:bg-[#bdbebdba] group hover:bg-[#c9de43cb] items-center rounded-lg cursor-pointer bg-[#8b9703]"
-          >
-            <p class="text-white group-active:text-black">Yangilash</p>
+
+        <div id="players" class="mt-4 flex flex-wrap gap-2" role="list"></div>
+        <p id="empty-hint" class="mt-4 text-sm text-slate-500">Hali o'yinchi qo'shilmadi.</p>
+
+        <div class="mt-7 border-t border-white/10 pt-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <span class="text-sm font-semibold text-slate-300">Nechta jamoa?</span>
+            <div id="team-count" class="flex overflow-hidden rounded-lg border border-white/20" role="group"></div>
           </div>
+          <p id="readout" class="mt-3 text-sm tabular-nums text-slate-400"></p>
         </div>
-        <div
-          class="zamen_wrapper min-w-[350px] md:w-[600px] flex px-2 py-1 md:px-4 md:py-2 gap-2 md:gap-4 flex-wrap items-center rounded-lg bg-[#0ebc05aa] min-h-20 md:min-h-24 xl:min-w-[900px]"
-        >
-          <!-- dinamic zamen -->
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button
+            id="draw"
+            type="button"
+            class="flex-1 rounded-lg bg-emerald-600 px-6 py-3.5 text-base font-bold uppercase tracking-wide text-white transition hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 active:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-500"
+          >
+            Jamoalarga bo'lish
+          </button>
+          <button
+            id="clear"
+            type="button"
+            class="rounded-lg border border-white/20 px-5 py-3.5 text-sm font-semibold text-slate-300 transition hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+          >
+            Tozalash
+          </button>
         </div>
       </div>
-    </div>
+    </main>
+
+    <!-- ============ results screen ============ -->
+    <main id="results" class="mx-auto hidden min-h-screen max-w-6xl flex-col justify-center px-4 py-10">
+      <div
+        class="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/20 bg-slate-900/80 px-4 py-3"
+      >
+        <h2 id="results-title" class="text-xl font-extrabold tracking-tight text-white sm:text-2xl"></h2>
+        <div class="flex gap-2.5">
+          <button
+            id="reshuffle"
+            type="button"
+            class="rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 active:bg-emerald-700"
+          >
+            Qayta aralashtirish
+          </button>
+          <button
+            id="back"
+            type="button"
+            class="rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:border-white/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+          >
+            Ismlarni o'zgartirish
+          </button>
+        </div>
+      </div>
+      <div id="teams" class="grid gap-4"></div>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
   </body>
-  <script src="./utils.js"></script>
-  <script src="./main.js"></script>
 </html>

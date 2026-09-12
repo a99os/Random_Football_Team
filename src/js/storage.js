@@ -43,14 +43,5 @@ export function createStorage(target = globalThis.localStorage) {
         // Private browsing and full quotas both throw; losing the roster is not fatal.
       }
     },
-
-    // Never localStorage.clear() — that wipes every key on the origin, not just ours.
-    clear() {
-      try {
-        target?.removeItem(KEY);
-      } catch {
-        /* nothing we can do */
-      }
-    },
   };
 }

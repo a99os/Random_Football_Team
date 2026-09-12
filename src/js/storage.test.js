@@ -34,8 +34,18 @@ test("survives corrupt stored data instead of throwing", () => {
   assert.deepEqual(createStorage(s).load(), { players: [], teamCount: 2 });
 });
 
-test("clear removes only our key, never the whole origin", () => {
-  const s = fakeStorage({ [KEY]: "[]", "unrelated-app": "keep me" });
-  createStorage(s).clear();
-  assert.deepEqual(s.keys(), ["unrelated-app"]);
+// Regression guard for the original bug: the clear button called
+// localStorage.clear("football_random"), which ignores its argument and wipes
+// every key on the origin. Nothing may call Storage.clear() again.
+test("no source file calls Storage.clear()", async () => {
+  const { readdir, readFile } = await import("node:fs/promises");
+  const dir = new URL(".", import.meta.url);
+  for (const f of await readdir(dir)) {
+    if (!f.endsWith(".js") || f.endsWith(".test.js")) continue;
+    const src = await readFile(new URL(f, dir), "utf8");
+    assert.ok(
+      !/\.\s*clear\s*\(/.test(src),
+      `${f} calls Storage.clear(), which wipes the whole origin`
+    );
+  }
 });

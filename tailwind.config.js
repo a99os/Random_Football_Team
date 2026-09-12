@@ -362,6 +362,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Archivo',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',

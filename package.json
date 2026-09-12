@@ -1,10 +1,13 @@
 {
-  "name": "tailwind_starter",
+  "name": "random-football-team",
   "version": "1.0.0",
-  "description": "",
+  "description": "Split a list of players into random football teams",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/main.css -o ./src/output.css --watch"
+    "start": "npx serve src",
+    "dev": "npx tailwindcss -i ./src/main.css -o ./src/output.css --watch",
+    "build": "npx tailwindcss -i ./src/main.css -o ./src/output.css --minify",
+    "test": "node --test src/js/*.test.js"
   },
   "keywords": [],
   "author": "",
